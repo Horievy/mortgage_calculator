@@ -1,0 +1,36 @@
+.edit-bank-list-item {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 25px;
+}
+
+.edit-bank-list-item button {
+  margin: 3px;
+}
+
+.edit-bank-list-item-label {
+  margin-left: 1.25rem;
+  line-height: 35px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
+.edit-bank-list-options-item {
+  list-style-type: disc;
+}
+
+.edit-bank-list-options-item::marker {
+  color: rgb(36, 87, 23);
+}
+
+.edit-bank-list-item.done .edit-bank-list-item-label {
+  text-decoration: line-through;
+}
+
+.edit-bank-list-item.important .edit-bank-list-item-label {
+  font-weight: bold;
+  color: steelblue;
+}

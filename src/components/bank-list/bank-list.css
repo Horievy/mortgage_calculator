@@ -1,0 +1,7 @@
+.list-group.bank-list {
+  margin-bottom: 40px;
+}
+
+.bank-list .list-group-item {
+  padding: .25rem .75rem;
+}

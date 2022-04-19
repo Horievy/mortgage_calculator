@@ -1,0 +1,21 @@
+.app-header {
+  align-items: center;
+  width: 100%vw;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  margin-right: 90px;
+}
+
+.app-header a {
+  font-size: 1rem;
+  color: rgb(105, 102, 245);
+  margin-right: 20px;
+}
+
+.app-header-active {
+  text-decoration: underline;
+}

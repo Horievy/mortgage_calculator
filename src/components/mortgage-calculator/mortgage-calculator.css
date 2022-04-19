@@ -1,0 +1,24 @@
+.mortgage-calculator {
+  max-width: 600px;
+  margin: 50px auto 0;
+}
+
+.custom-select {
+  height: auto;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.mortgage-calculator__info {
+  margin-left: 15px;
+}
+
+.bank-list-item-label {
+  margin-left: 1.25rem;
+  line-height: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+
