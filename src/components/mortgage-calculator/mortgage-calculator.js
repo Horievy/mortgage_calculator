@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import './mortgage-calculator.css';
 
 const MortgageCalculator = ({banks}) => {
-  const [selectedBankData, toggleBankChoice] = useState(false);
+  const [selectedBankData, toggleBankChoice] = useState(null);
+  const [payment, setMonthPayment] = useState(null);
 
   const banksOptions = banks.map((item) => {
     return (
@@ -30,7 +31,8 @@ const MortgageCalculator = ({banks}) => {
     const amountBorrowed = initLoan - downPayment;
     const monthlyInterests = +selectedBankData.interestsRate / 100 / 12
 
-    console.log(calculateMonthlyPayment(+amountBorrowed, selectedBankData.loanTerm, monthlyInterests));
+    const monthPayment = calculateMonthlyPayment(+amountBorrowed, selectedBankData.loanTerm, monthlyInterests);
+    setMonthPayment(monthPayment)
   }
 
   const calculateMonthlyPayment = (p, n, i) => {
@@ -55,15 +57,15 @@ const MortgageCalculator = ({banks}) => {
           </div>
           <div className="form-group">
             <label>Initial loan *:
-              <input required name="initLoan" className="form-control" type="number" max={selectedBankData.maximumLoan}/>
+              <input required name="initLoan" className="form-control" type="number" max={selectedBankData && selectedBankData.maximumLoan}/>
             </label>
-            {selectedBankData && <span className="mortgage-calculator__info">(max loan is {selectedBankData.maximumLoan})</span>}
+            {selectedBankData && <span className="mortgage-calculator__info">(max loan is {selectedBankData && selectedBankData.maximumLoan})</span>}
           </div>
           <div className="form-group">
             <label>Down payment *:
-              <input required name="downPayment" className="form-control" type="number" min={selectedBankData.minDownPayment}/>
+              <input required name="downPayment" className="form-control" type="number" min={selectedBankData && selectedBankData.minDownPayment}/>
             </label>
-            {selectedBankData && <span className="mortgage-calculator__info">(min down payment is {selectedBankData.minDownPayment})</span>}
+            {selectedBankData && <span className="mortgage-calculator__info">(min down payment is {selectedBankData && selectedBankData.minDownPayment})</span>}
           </div>
           {selectedBankData &&
             <div>
@@ -80,15 +82,9 @@ const MortgageCalculator = ({banks}) => {
             </button>
           </div>
         
-        </form> 
+        </form>
 
-      {/* {selectedBankData &&
-        <div>
-          sddadsd
-          <h1>{selectedBankData.bankName}</h1>
-          {calculatePayment({...selectedBankData})}
-        </div>
-      } */}
+        { payment && <h5>Payment amount is {payment.toFixed(2)} $</h5> }
     </div>
     
   );

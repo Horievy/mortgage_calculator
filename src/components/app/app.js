@@ -63,8 +63,6 @@ export default class App extends Component {
   }
 
   onEdit = (editedEl) => {
-    console.log(editedEl)
-    console.log(this.toggleProp(this.state.banksData, editedEl))
     this.setState(({banksData}) => {
       return {
         banksData: this.toggleProp(banksData, editedEl)
